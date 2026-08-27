@@ -1,4 +1,4 @@
-fetch("https://raw.githubusercontent.com/spsoumya24/telegram-no1-movie-group/refs/heads/main/movies.json")
+fetch("https://raw.githubusercontent.com/spsoumya24/telegram-no1-movie-group/refs/heads/main/movies.json?v=" + Date.now())
   .then(response => response.json())
   .then(banners => {
 
