@@ -5,6 +5,27 @@ fetch("https://raw.githubusercontent.com/spsoumya24/telegram-no1-movie-group/ref
     const bannerContainer =
       document.getElementById("banner-container");
 
+    // URL থেকে movie নাম নেওয়া
+    const params = new URLSearchParams(window.location.search);
+    const selectedMovie = params.get("movie");
+
+    // যদি ?movie= থাকে, শুধু সেই movie দেখাবে
+    if (selectedMovie) {
+
+      banners = banners.filter(item => {
+
+        const movieKey =
+          item.title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "");
+
+        return movieKey.includes(selectedMovie.toLowerCase());
+
+      });
+
+    }
+
     banners.forEach(item => {
 
       const card = document.createElement("div");
