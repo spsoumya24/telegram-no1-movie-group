@@ -1,4 +1,4 @@
-fetch("movies.json")
+fetch("movies.json?v=" + Date.now())
   .then(response => response.json())
   .then(banners => {
 
