@@ -1,0 +1,84 @@
+name: Update Sitemap
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'movies.json'
+      - '.github/workflows/sitemap.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate sitemap
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from xml.sax.saxutils import escape
+
+          base = "https://spsoumya24.github.io/telegram-no1-movie-group/"
+
+          with open("movies.json", "r", encoding="utf-8") as f:
+              movies = json.load(f)
+
+          urls = []
+
+          # Main website
+          urls.append(f"""
+          <url>
+            <loc>{escape(base)}</loc>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+          </url>
+          """)
+
+          # Movies
+          for movie in movies:
+              movie_id = str(movie.get("id", "")).strip().lower()
+
+              if movie_id:
+                  url = base + "?movie=" + movie_id
+
+                  urls.append(f"""
+          <url>
+            <loc>{escape(url)}</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.8</priority>
+          </url>
+          """)
+
+          sitemap = f'''<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          {"".join(urls)}
+          </urlset>
+          '''
+
+          Path("sitemap.xml").write_text(
+              sitemap,
+              encoding="utf-8"
+          )
+          PY
+
+      - name: Commit sitemap
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add sitemap.xml
+
+          if git diff --cached --quiet; then
+            echo "No sitemap changes"
+          else
+            git commit -m "Auto update sitemap"
+            git push
+          fi
