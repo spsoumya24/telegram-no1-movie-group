@@ -1,55 +1,81 @@
-fetch("https://raw.githubusercontent.com/spsoumya24/telegram-no1-movie-group/refs/heads/main/movies.json?v=" + Date.now())
-  .then(response => response.json())
-  .then(banners => {
-
-    const bannerContainer =
-      document.getElementById("banner-container");
-
-    // URL থেকে movie ID নেওয়া
+// Add, edit, or remove movie entries in movies.json. The website reads that file automatically.
+fetch("movies.json?v=" + Date.now())
+  .then(response => {
+    if (!response.ok) throw new Error("Could not load movies.json");
+    return response.json();
+  })
+  .then(movies => {
+    const movieGrid = document.getElementById("movie-grid");
     const params = new URLSearchParams(window.location.search);
     const selectedMovie = params.get("movie");
+    const visibleMovies = selectedMovie
+      ? movies.filter(movie => String(movie.id).toLowerCase() === selectedMovie.toLowerCase())
+      : movies;
 
-    // যদি ?movie= থাকে, শুধু সেই movie দেখাবে
-    if (selectedMovie) {
-      banners = banners.filter(item =>
-        item.id === selectedMovie.toLowerCase()
-      );
-    }
+    visibleMovies.forEach(movie => {
+      const card = document.createElement("article");
+      card.className = "movie-card";
 
-    banners.forEach(item => {
+      const image = document.createElement("img");
+      image.src = movie.image;
+      image.alt = movie.title || "Movie poster";
+      image.loading = "lazy";
+      card.appendChild(image);
 
-      const card = document.createElement("div");
+      const title = document.createElement("h3");
+      title.textContent = movie.title || "Untitled Movie";
+      card.appendChild(title);
 
-      card.className = "banner-card";
-
-      card.innerHTML = `
-        <a href="${item.link}"
-           target="_blank"
-           class="banner">
-
-          <img src="${item.image}"
-               alt="${item.title}">
-
-        </a>
-
-        <a href="${item.link}"
-           target="_blank"
-           class="movie-info">
-
-          <h2>${item.title}</h2>
-
-          <p>${item.quality}</p>
-
-        </a>
-      `;
-
-      bannerContainer.appendChild(card);
-
+      if (movie.link) {
+        const link = document.createElement("a");
+        link.href = movie.link;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "movie-card-link";
+        link.setAttribute("aria-label", "Open " + (movie.title || "movie"));
+        card.appendChild(link);
+        card.classList.add("is-clickable");
+        card.addEventListener("click", event => {
+          if (event.target !== link) window.open(movie.link, "_blank", "noopener");
+        });
+      }
+      movieGrid.appendChild(card);
     });
-
   })
-  .catch(error => {
+  .catch(error => console.error("Movie data loading error:", error));
 
-    console.error("Movie data loading error:", error);
+// Two empty ad spaces are reserved. Add a third object here later if required.
+const adSlots = [
+  { image: "", url: "", alt: "Advertisement space 1" },
+  { image: "", url: "", alt: "Advertisement space 2" }
+];
+const adGrid = document.getElementById("ad-grid");
+adSlots.forEach((slot, index) => {
+  const element = slot.url ? document.createElement("a") : document.createElement("div");
+  element.className = "ad-slot";
+  element.setAttribute("aria-label", slot.alt || `Advertisement space ${index + 1}`);
+  if (slot.url) {
+    element.href = slot.url;
+    element.target = "_blank";
+    element.rel = "noopener noreferrer sponsored";
+  }
+  if (slot.image) {
+    const image = document.createElement("img");
+    image.src = slot.image;
+    image.alt = slot.alt || "Sponsored banner";
+    element.appendChild(image);
+  }
+  adGrid.appendChild(element);
+});
 
-  });
+document.getElementById("year").textContent = new Date().getFullYear();
+const toggle = document.querySelector(".menu-toggle");
+const nav = document.getElementById("nav");
+toggle.addEventListener("click", () => {
+  const opened = nav.classList.toggle("open");
+  toggle.setAttribute("aria-expanded", String(opened));
+});
+nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+  nav.classList.remove("open");
+  toggle.setAttribute("aria-expanded", "false");
+}));

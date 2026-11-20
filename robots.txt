@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://spsoumya24.github.io/telegram-no1-movie-group/sitemap.xml

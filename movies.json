@@ -1,21 +1,26 @@
-[{ "id": "toxic",
+[
+  {
+    "id": "doomsday",
+    "image": "doomsday.jpg",
+    "title": "Avengers: Doomsday",
+    "link": ""
+  },
+  {
+    "id": "toxic",
     "image": "toxic.jpg",
-    "title": "𝐓𝐎𝐗𝐈𝐂: 𝐀 𝐅𝐀𝐈𝐑𝐘 𝐓𝐀𝐋𝐄 𝐅𝐎𝐑 𝐆𝐑𝐎𝐖𝐍-𝐔𝐏𝐒",
-    "quality": "⬇ Download • 480p • 720p • 1080p • [PreDvD]",
+    "title": "TOXIC: A FAIRY TALE FOR GROWN-UPS",
     "link": "https://linkmake.in/view/CDnNSyH4XU"
   },
-  {  "id": "spiderman",
+  {
+    "id": "spiderman",
     "image": "banner1.jpg",
     "title": "SPIDER-MAN: BRAND NEW DAY",
-    "quality": "⬇ Download • 480p • 720p • 1080p • [PreDvD]",
     "link": "https://linkmake.in/view/EEg6cwrI7l"
   },
-    {
-  "id": "ramayana-part-1",
-  "image": "luzlrrv12nzh1.jpeg",
-  "title": "Ramayana: Part 1",
-  "quality": "⬇ Download • 480p • 720p • 1080p",
-  "link": "https://linkmake.in/view/L2JLVYq9XQ"
-    }
+  {
+    "id": "ramayana-part-1",
+    "image": "luzlrrv12nzh1.jpeg",
+    "title": "Ramayana: Part 1",
+    "link": "https://linkmake.in/view/L2JLVYq9XQ"
+  }
 ]
-
