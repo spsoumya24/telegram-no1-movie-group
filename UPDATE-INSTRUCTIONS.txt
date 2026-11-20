@@ -1,22 +1,18 @@
-MAITIHUB24 UPDATE
+MAITIHUB24 UPDATE FILES
 
-Upload/replace these files in the ROOT of your existing GitHub repository:
+Upload and replace these files in the ROOT of your existing GitHub Pages repository:
 - index.html
 - style.css
 - script.js
-- ads.js
 
-Keep all existing movie poster files and movies.json. Do NOT rename the GitHub repository.
-Keep telegram.png and con.jpg in the repository root (you already uploaded these).
+Keep your existing movies.json, logo.png, telegram.gif, whatsapp.png, movie poster images, and other assets.
+Keep ads.js in the repository. It controls the two blank advertisement spaces.
 
-MOVIE SYSTEM:
-Edit movies.json only. The newest three entries (top three) feed the rotating movie slides. All entries appear in Featured Movies; the first three appear in Latest Updates. Each movie slide/card uses that movie's own link field.
+Changes in this update:
+- Removes the Latest Updates section and its navigation link.
+- Restores two visible, blank advertisement slots below Featured Movies.
+- Uses the existing telegram.gif in the Telegram slider, Join Update Channel button, and footer instead of the blue filtered square.
+- Makes the Join Update Channel button Telegram blue.
+- Slider rotates through the fixed Telegram promotion and the latest three movies.
 
-SLIDER:
-Slide 1 is the permanent Telegram channel promotion. The next slide area cycles through the latest three movie entries every 4.5 seconds. Movie contents change only when movies.json is updated.
-
-ADS:
-Edit ads.js. Each ad item supports image and url. Leave them empty for silent blank spaces. Add a third object to MAITIHUB_ADS later for a third slot.
-
-Telegram icon uses telegram.png and is styled blue with a CSS filter. Contact button uses con.jpg.
-Old site URL remains: https://spsoumya24.github.io/telegram-no1-movie-group/
+Do not rename the GitHub repository; the existing website URL remains unchanged.

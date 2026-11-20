@@ -1,6 +1,5 @@
 // movies.json is the single source for Featured Movies, Latest Updates and the 3 rotating movie slides.
 const movieGrid = document.getElementById('movie-grid');
-const updatesList = document.getElementById('updates-list');
 const heroSlide = document.getElementById('movie-slide');
 const heroImage = document.getElementById('hero-movie-image');
 const heroTitle = document.getElementById('hero-movie-title');
@@ -18,36 +17,43 @@ function renderMovieCard(movie) {
 }
 function showSlide(index) {
   if (!movies.length) return;
-  document.getElementById('telegram-slide').classList.remove('is-active');
-  heroSlide.classList.add('is-active');
-  currentMovieSlide = ((index % Math.min(3, movies.length)) + Math.min(3, movies.length)) % Math.min(3, movies.length);
-  const movie = movies[currentMovieSlide];
-  heroImage.src = movie.image; heroImage.alt = movie.title || 'Latest movie'; heroTitle.textContent = movie.title || 'Latest Movie';
-  heroSlide.href = movieDestination(movie); heroSlide.target = movie.link ? '_blank' : '_self'; heroSlide.rel = movie.link ? 'noopener noreferrer' : '';
-  dots.forEach((dot, i) => dot.classList.toggle('active', i === currentMovieSlide + 1));
+  const total = Math.min(3, movies.length) + 1; // fixed Telegram slide + up to 3 movie slides
+  const slideIndex = ((index % total) + total) % total;
+  currentMovieSlide = slideIndex;
+  const telegramSlide = document.getElementById('telegram-slide');
+  if (slideIndex === 0) {
+    telegramSlide.classList.add('is-active');
+    heroSlide.classList.remove('is-active');
+  } else {
+    telegramSlide.classList.remove('is-active');
+    heroSlide.classList.add('is-active');
+    const movie = movies[slideIndex - 1];
+    heroImage.src = movie.image;
+    heroImage.alt = movie.title || 'Movie poster';
+    heroTitle.textContent = movie.title || 'Latest Movie';
+    heroSlide.href = movieDestination(movie);
+    heroSlide.target = movie.link ? '_blank' : '_self';
+    heroSlide.rel = movie.link ? 'noopener noreferrer' : '';
+  }
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === slideIndex));
 }
 function startSlider() {
   clearInterval(slideTimer);
-  if (movies.length > 0) slideTimer = setInterval(() => showSlide(currentMovieSlide + 1), 4500);
+  const total = Math.min(3, movies.length) + 1;
+  if (movies.length) slideTimer = setInterval(() => showSlide((currentMovieSlide + 1) % total), 4500);
 }
 fetch('movies.json?v=' + Date.now()).then(r => { if (!r.ok) throw new Error('movies.json not found'); return r.json(); }).then(data => {
   movies = Array.isArray(data) ? data : [];
   const params = new URLSearchParams(location.search); const selected = params.get('movie');
   const visible = selected ? movies.filter(m => String(m.id).toLowerCase() === selected.toLowerCase()) : movies;
   visible.forEach(movie => movieGrid.appendChild(renderMovieCard(movie)));
-  movies.slice(0, 3).forEach(movie => {
-    const item = document.createElement('a'); item.className = 'update-item'; item.href = movieDestination(movie);
-    if (movie.link) { item.target = '_blank'; item.rel = 'noopener noreferrer'; }
-    const name = document.createElement('span'); name.textContent = movie.title || 'New movie';
-    const label = document.createElement('small'); label.textContent = 'VIEW MOVIE ↗'; item.append(name, label); updatesList.appendChild(item);
-  });
   if (movies.length) { showSlide(0); startSlider(); }
 }).catch(err => console.error('Movie data loading error:', err));
 
-// Slider dot navigation: dot 0 is the permanent Telegram slide; dots 1-3 select the movie slides.
+// Four-slide rotation: fixed Telegram promotion, followed by the latest three movies.
 dots.forEach((dot, i) => dot.addEventListener('click', () => {
-  if (i === 0) { document.getElementById('telegram-slide').classList.add('is-active'); heroSlide.classList.remove('is-active'); dots.forEach((d,j)=>d.classList.toggle('active',j===0)); clearInterval(slideTimer); slideTimer=setTimeout(()=>{showSlide(currentMovieSlide);startSlider();},4500); }
-  else { showSlide(i - 1); startSlider(); }
+  showSlide(i);
+  startSlider();
 }));
 
 const adGrid = document.getElementById('ad-grid');
