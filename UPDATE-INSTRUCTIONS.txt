@@ -1,0 +1,21 @@
+MAITIHUB24 UPDATE FILES
+
+Upload/replace these files in the ROOT of your existing GitHub Pages repository:
+- index.html
+- script.js
+- style.css
+- ads.js (new file)
+
+Keep these existing files in the repository:
+- movies.json and all movie poster images
+- logo.png
+- telegram.png (you uploaded this to GitHub)
+- con.jpg (you uploaded this to GitHub)
+- whatsapp.png and other existing assets
+
+The updated index.html uses telegram.png for Telegram buttons/footer and con.jpg for Contact Us.
+The two ad zones are configured in ads.js. Keep image and url empty for blank spaces.
+For an ad, upload its banner image to the repository root and set image to its filename and url to its destination.
+To add a third ad zone, add a third object to window.MAITIHUB_ADS in ads.js.
+
+Do NOT rename the GitHub repository. The old website URL will remain the same.

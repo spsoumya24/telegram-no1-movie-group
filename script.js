@@ -44,11 +44,8 @@ fetch("movies.json?v=" + Date.now())
   })
   .catch(error => console.error("Movie data loading error:", error));
 
-// Two empty ad spaces are reserved. Add a third object here later if required.
-const adSlots = [
-  { image: "", url: "", alt: "Advertisement space 1" },
-  { image: "", url: "", alt: "Advertisement space 2" }
-];
+// Advertisement slots are configured separately in ads.js.
+const adSlots = Array.isArray(window.MAITIHUB_ADS) ? window.MAITIHUB_ADS : [];
 const adGrid = document.getElementById("ad-grid");
 adSlots.forEach((slot, index) => {
   const element = slot.url ? document.createElement("a") : document.createElement("div");
