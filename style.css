@@ -26,3 +26,8 @@ a.btn.primary[href*="t.me"]:hover {
   object-fit: contain;
   background: transparent;
 }
+
+/* Home links on brand and welcome title */
+.welcome-home-link{color:inherit;text-decoration:none}
+.welcome-home-link:hover span{text-decoration:underline;text-underline-offset:4px}
+.footer-brand{color:inherit;text-decoration:none}
