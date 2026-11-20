@@ -1,18 +1,14 @@
-MAITIHUB24 UPDATE FILES
+MAITIHUB24 QUICK UPDATE
 
-Upload and replace these files in the ROOT of your existing GitHub Pages repository:
+Upload and replace these four files in the ROOT of the existing GitHub Pages repository:
 - index.html
 - style.css
 - script.js
+- ads.js
 
-Keep your existing movies.json, logo.png, telegram.gif, whatsapp.png, movie poster images, and other assets.
-Keep ads.js in the repository. It controls the two blank advertisement spaces.
+IMPORTANT: This update uses the existing telegram.png file (not telegram.gif) for the Telegram logo.
+Keep telegram.png, con.jpg, logo.png, whatsapp.png, movies.json, all movie poster images, and the existing repository name unchanged.
 
-Changes in this update:
-- Removes the Latest Updates section and its navigation link.
-- Restores two visible, blank advertisement slots below Featured Movies.
-- Uses the existing telegram.gif in the Telegram slider, Join Update Channel button, and footer instead of the blue filtered square.
-- Makes the Join Update Channel button Telegram blue.
-- Slider rotates through the fixed Telegram promotion and the latest three movies.
+This update applies the Telegram Blue (#229ED9) button color with a strong CSS override and uses telegram.png for the hero, Join Update Channel button, and footer Telegram icon.
 
-Do not rename the GitHub repository; the existing website URL remains unchanged.
+After uploading, commit the changes. On the phone, reopen the website with ?v=2 added at the end of the URL or clear the browser cache to bypass old cached CSS/images.
