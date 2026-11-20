@@ -1,7 +1,6 @@
-// MaitiHub24 Ad Zones
-// Add banner image and destination link here. Leave both empty to keep a blank slot.
-// To add a third zone later, copy one object and change its image/url.
+/* Add ad image and destination links here. Leave image/url empty to keep a silent blank slot. */
 window.MAITIHUB_ADS = [
-  { image: "", url: "", alt: "Ad Zone 1" },
-  { image: "", url: "", alt: "Ad Zone 2" }
+  { image: "", url: "", alt: "Advertisement 1" },
+  { image: "", url: "", alt: "Advertisement 2" }
 ];
+// To add a third ad later, copy one object above and add it to this array.
