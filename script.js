@@ -24,17 +24,61 @@ paginationStyle.textContent = `
 document.head.appendChild(paginationStyle);
 
 function movieDestination(movie) {
-  return movie.link || `?movie=${encodeURIComponent(movie.id)}`;
+  return `/movie/${encodeURIComponent(movie.id)}/`;
+}
+
+function movieShareUrl(movie) {
+  return `${location.origin}/movie/${encodeURIComponent(movie.id)}/`;
+}
+
+function copyMovieShareUrl(movie) {
+  const shareUrl = movieShareUrl(movie);
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      showShareNotice(`Movie link copied: ${shareUrl}`);
+    }).catch(() => window.prompt('Copy this movie link:', shareUrl));
+  } else {
+    window.prompt('Copy this movie link:', shareUrl);
+  }
+}
+
+function showShareNotice(message) {
+  let notice = document.getElementById('movie-share-notice');
+  if (!notice) {
+    notice = document.createElement('div');
+    notice.id = 'movie-share-notice';
+    notice.setAttribute('role', 'status');
+    notice.style.cssText = 'position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:9999;max-width:90vw;padding:12px 16px;border-radius:12px;background:#172431;color:#fff;border:1px solid #34495b;box-shadow:0 8px 28px #0008;font:14px system-ui;text-align:center';
+    document.body.appendChild(notice);
+  }
+  notice.textContent = message;
+  clearTimeout(notice._hideTimer);
+  notice._hideTimer = setTimeout(() => notice.remove(), 3000);
 }
 
 function renderMovieCard(movie) {
   const card = document.createElement('a');
   card.className = 'movie-card';
   card.href = movieDestination(movie);
-  if (movie.link) {
-    card.target = '_blank';
-    card.rel = 'noopener noreferrer';
-  }
+  card.title = 'Long-press to copy this movie share link';
+  let pressTimer = null;
+  let longPressed = false;
+  card.addEventListener('pointerdown', () => {
+    longPressed = false;
+    clearTimeout(pressTimer);
+    pressTimer = setTimeout(() => {
+      longPressed = true;
+      copyMovieShareUrl(movie);
+    }, 650);
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(eventName => card.addEventListener(eventName, () => clearTimeout(pressTimer)));
+  card.addEventListener('click', event => {
+    if (longPressed) { event.preventDefault(); event.stopPropagation(); longPressed = false; }
+  });
+  card.addEventListener('contextmenu', event => {
+    event.preventDefault();
+    copyMovieShareUrl(movie);
+  });
   const image = document.createElement('img');
   image.src = movie.image;
   image.alt = movie.title || 'Movie poster';
@@ -122,8 +166,8 @@ function showSlide(index) {
     heroImage.alt = movie.title || 'Movie poster';
     heroTitle.textContent = movie.title || 'Latest Movie';
     heroSlide.href = movieDestination(movie);
-    heroSlide.target = movie.link ? '_blank' : '_self';
-    heroSlide.rel = movie.link ? 'noopener noreferrer' : '';
+    heroSlide.target = '_self';
+    heroSlide.rel = '';
   }
   dots.forEach((dot, i) => dot.classList.toggle('active', i === slideIndex));
 }

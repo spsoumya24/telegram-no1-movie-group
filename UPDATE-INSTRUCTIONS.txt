@@ -1,14 +1,11 @@
-MAITIHUB24 QUICK UPDATE
+MAITIHUB24 - FINAL MOVIE SHARE / OG SYSTEM
 
-Upload and replace these four files in the ROOT of the existing GitHub Pages repository:
-- index.html
-- style.css
-- script.js
-- ads.js
+1. Upload and replace the repository files with the contents of this ZIP.
+2. Keep the repository's GitHub Pages source on the main branch (root folder).
+3. After uploading, open GitHub -> Actions and wait for "Generate Movie Share Pages and Sitemap" to finish successfully.
+4. Every future movie must be added to movies.json with a unique id, title, image filename, and (if applicable) destination link. Upload the poster image file too.
+5. A push changing movies.json automatically generates /movie/MOVIE-ID/ with that movie's Open Graph/Twitter poster metadata and refreshes sitemap.xml.
+6. Share the generated URL: https://maitihub24.dpdns.org/movie/MOVIE-ID/
+7. Legacy query URLs such as https://maitihub24.dpdns.org/?movie=MOVIE-ID remain supported by the homepage movie loader, but social crawlers may only see the homepage OG image on those query URLs. Use /movie/MOVIE-ID/ for per-movie social previews.
 
-IMPORTANT: This update uses the existing telegram.png file (not telegram.gif) for the Telegram logo.
-Keep telegram.png, con.jpg, logo.png, whatsapp.png, movies.json, all movie poster images, and the existing repository name unchanged.
-
-This update applies the Telegram Blue (#229ED9) button color with a strong CSS override and uses telegram.png for the hero, Join Update Channel button, and footer Telegram icon.
-
-After uploading, commit the changes. On the phone, reopen the website with ?v=2 added at the end of the URL or clear the browser cache to bypass old cached CSS/images.
+Important: Social platforms cache previews. After publishing, use their link preview debugger/refresh tools where available, or wait for their cache to expire.
