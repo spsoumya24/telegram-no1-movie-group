@@ -35,4 +35,3 @@ jobs:
             git commit -m "Auto-generate movie share pages and sitemap"
             git push
           fi
-          
