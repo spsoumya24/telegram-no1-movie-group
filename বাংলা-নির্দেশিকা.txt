@@ -1,0 +1,29 @@
+MAITIHUB24 UPDATE FILES — বাংলা নির্দেশিকা
+
+এই ZIP-এ আছে:
+1) index.html — বাংলা কমেন্টসহ আপডেট করা HTML
+2) style.css — বাংলা কমেন্টসহ আপডেট করা CSS
+3) logo.gif — Header-এর অ্যানিমেটেড লোগো
+4) favicon.png — Footer-এর ছোট লোগো এবং Browser/Google Favicon
+
+GitHub-এর main/root ফোল্ডারে:
+- index.html রিপ্লেস করুন।
+- style.css রিপ্লেস করুন।
+- নতুন logo.gif আপলোড করুন।
+- নতুন favicon.png আপলোড করুন।
+
+আগের এই ফাইলগুলো ডিলিট বা রিপ্লেস করবেন না:
+logo.png, telegram.png, telegram.gif, whatsapp.png, mail.jpg,
+og.png, script.js, ads.js, movies.json এবং movie ফোল্ডার।
+
+কোন ছবিটি কোথায়:
+- Header: logo.gif (অ্যানিমেটেড)
+- Footer নামের আগে: favicon.png
+- Join Movie Group: logo.png (আগের ফাইল)
+- Join Update Channel: telegram.png
+- Footer Contact Telegram: telegram.gif
+- উপরের Telegram Slider: telegram.gif (আগের মতোই)
+
+সতর্কতা:
+ZIP-এ শুধু সংশোধিত index.html, style.css এবং নতুন logo.gif/favicon.png আছে।
+GitHub-এ পুরোনো index.html ও style.css-এর কপি রেখে তারপর রিপ্লেস করবেন।

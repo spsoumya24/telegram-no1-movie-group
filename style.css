@@ -1,33 +1,184 @@
-*{box-sizing:border-box;margin:0;padding:0}:root{--bg:#080d13;--text:#f7f8fa;--muted:#aab5c1;--orange:#ff850e;--gold:#ffb13b;--line:rgba(255,255,255,.1);--blue:#229ed9}html{scroll-behavior:smooth;scroll-padding-top:76px}body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 50% -20%,#182a3b 0,#080d13 52%);color:var(--text);line-height:1.5}a{color:inherit;text-decoration:none}.topbar{height:68px;padding:0 clamp(14px,3vw,42px);display:flex;align-items:center;justify-content:space-between;background:rgba(5,10,15,.97);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}.brand{display:flex;align-items:center;gap:10px}.brand img{width:48px;height:48px;object-fit:contain;border-radius:50%}.brand-copy strong{display:block;font-size:22px;line-height:1.1;letter-spacing:-.6px}.brand-copy strong span,.footer-brand span{color:var(--orange)}.brand-copy small{display:block;color:#aab5c1;font-size:9px;letter-spacing:2px}.nav{display:flex;gap:clamp(14px,2.5vw,32px);align-items:center}.nav a{font-size:13px;font-weight:700;color:#c5ced7}.nav a:hover,.nav a.active{color:var(--orange)}.menu-toggle{display:none;background:none;color:white;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:20px}
-.hero-slider{height:clamp(180px,27vw,290px);position:relative;overflow:hidden;background:#071019;border-bottom:1px solid var(--line)}.hero-slide{position:absolute;inset:0;display:block;opacity:0;pointer-events:none;transition:opacity .65s ease}.hero-slide.is-active{opacity:1;pointer-events:auto}.telegram-slide{background:radial-gradient(circle at 80% 20%,#16527a,#071827 65%);display:flex;align-items:center;justify-content:center}.telegram-hero-content{display:flex;align-items:center;gap:22px;padding:18px}.telegram-hero-content>img{width:clamp(70px,12vw,120px);height:auto;object-fit:contain}.telegram-hero-content h1{font-size:clamp(20px,3.4vw,38px);line-height:1.1;margin:6px 0;color:#fff}.telegram-hero-content p{font-size:13px;color:#d3e7f4}.hero-join{display:inline-block;margin-top:12px;background:#229ed9;color:white;padding:8px 17px;border-radius:22px;font-size:11px;font-weight:800}.movie-slide{overflow:hidden}.hero-image{width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;opacity:.85}.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,13,.88),rgba(3,8,13,.35) 58%,rgba(3,8,13,.08)),linear-gradient(0deg,rgba(4,9,14,.3),transparent)}.hero-caption{position:absolute;left:max(5%,calc((100% - 1160px)/2));top:50%;transform:translateY(-50%);max-width:560px}.eyebrow{font-size:9px;letter-spacing:2px;color:var(--gold);font-weight:800}.hero-caption h2{font-size:clamp(20px,3.3vw,38px);line-height:1.12;margin:8px 0}.hero-caption p{font-size:12px;color:#d1d8df}.slider-dots{position:absolute;z-index:5;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px}.slider-dots button{width:9px;height:9px;border:0;border-radius:50%;background:#9baab5;padding:0;cursor:pointer}.slider-dots button.active{background:#229ed9;transform:scale(1.2)}
-.welcome{text-align:center;padding:22px 16px 25px;border-bottom:1px solid var(--line)}.welcome h1{font-size:clamp(23px,3vw,32px);line-height:1.2}.welcome h1 span{color:var(--gold)}.welcome p{font-size:13px;color:#c2cbd4;margin:5px 0 17px}.main-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{min-height:43px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:25px;font-size:13px;font-weight:800;transition:.2s;border:1px solid transparent}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn.primary{background:#229ed9;color:#fff;box-shadow:0 6px 20px #229ed940}.btn.outline{border-color:#f18424;background:#0d151e;color:#fff}.button-icon{width:19px;height:19px;object-fit:contain}.telegram-icon{filter:none;object-fit:contain}
-.section{width:min(1160px,92%);margin:0 auto;padding:24px 0 25px}.section-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.section-heading h2{font-size:21px}.flame{color:var(--orange);margin-right:7px}.small-note{font-size:10px;color:#8997a5}.movie-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.movie-card{min-width:0;overflow:hidden;border:1px solid #9c4c19;border-radius:11px;background:#111923;box-shadow:0 5px 18px #0005;transition:.2s;display:block}.movie-card:hover{transform:translateY(-4px);border-color:var(--orange)}.movie-card img{width:100%;height:clamp(145px,20vw,235px);object-fit:cover;display:block;background:#111}.movie-card h3{font-size:12px;text-align:center;padding:9px 7px 11px;line-height:1.35;min-height:48px}.ad-section{width:min(1160px,92%);margin:0 auto;padding:6px 0 24px}.ad-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.ad-slot{height:132px;display:block;border:1px dashed rgba(255,255,255,.12);border-radius:12px;background:transparent;overflow:hidden}.ad-slot:empty{border-color:rgba(255,255,255,.22);background:rgba(17,25,35,.35)}.ad-slot img{width:100%;height:100%;object-fit:cover;display:block}
-.footer{text-align:center;padding:24px 15px 25px;border-top:1px solid var(--line);background:#060b10}.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;font-size:22px;font-weight:900}.footer-brand img{width:38px;height:38px;object-fit:contain;border-radius:50%}.footer-brand strong span{color:var(--orange)}.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:17px 0;color:#c3ccd5;font-size:11px}.footer-links a:hover{color:var(--gold)}.social-links{display:flex;justify-content:center;gap:18px;margin:12px}.social-links img{width:24px;height:24px;object-fit:contain}.footer p{font-size:10px;color:#8995a0;margin-top:5px}.footer .credit a{color:var(--gold);font-weight:700}
-@media(max-width:760px){.topbar{height:62px}.brand img{width:42px;height:42px}.brand-copy strong{font-size:19px}.nav{gap:13px}.nav a{font-size:11px}.movie-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.movie-card img{height:190px}}
-@media(max-width:560px){.topbar{padding:0 4%}.menu-toggle{display:block}.nav{display:none;position:absolute;top:62px;left:0;right:0;background:#071019;padding:14px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:15px}.nav.open{display:flex}.nav a{font-size:13px}.hero-slider{height:170px}.telegram-hero-content{gap:13px}.telegram-hero-content h1{font-size:21px}.telegram-hero-content p{font-size:10px}.hero-caption{left:5%;right:5%}.hero-caption h2{font-size:22px}.hero-caption p{font-size:10px}.welcome{padding:18px 12px 20px}.welcome p{font-size:11px}.main-buttons{gap:8px}.btn{min-height:39px;padding:0 13px;font-size:11px}.section{padding:19px 0}.section-heading h2{font-size:17px}.movie-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.movie-card img{height:210px}.movie-card h3{font-size:11px;min-height:43px}.ad-section{padding-top:5px}.ad-grid{grid-template-columns:1fr;gap:10px}.ad-slot{height:112px}.footer-links{gap:13px}}
+/* =========================================
+   পুরো ওয়েবসাইটের সাধারণ রং, ফন্ট ও বেসিক সেটিং
+   ========================================= */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#080d13;--text:#f7f8fa;--muted:#aab5c1;--orange:#ff850e;--gold:#ffb13b;--line:rgba(255,255,255,.1);--blue:#229ed9}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 50% -20%,#182a3b 0,#080d13 52%);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}
 
-/* Explicit Telegram brand styling: override any older orange button rules. */
+/* =========================================
+   HEADER / ওয়েবসাইটের উপরের বার
+   ========================================= */
+.topbar{height:68px;padding:0 clamp(14px,3vw,42px);display:flex;align-items:center;justify-content:space-between;background:rgba(5,10,15,.97);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.brand{display:flex;align-items:center;gap:10px}
+
+/* HEADER-এর অ্যানিমেটেড logo.gif-এর সাইজ */
+.brand img{width:88px;height:50px;object-fit:contain;border-radius:6px}
+
+.brand-copy strong{display:block;font-size:22px;line-height:1.1;letter-spacing:-.6px}
+.brand-copy strong span,.footer-brand span{color:var(--orange)}
+.brand-copy small{display:block;color:#aab5c1;font-size:9px;letter-spacing:2px}
+.nav{display:flex;gap:clamp(14px,2.5vw,32px);align-items:center}
+.nav a{font-size:13px;font-weight:700;color:#c5ced7}
+.nav a:hover,.nav a.active{color:var(--orange)}
+.menu-toggle{display:none;background:none;color:white;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:20px}
+
+/* =========================================
+   HERO SLIDER / উপরের বড় স্লাইডার
+   ========================================= */
+.hero-slider{height:clamp(180px,27vw,290px);position:relative;overflow:hidden;background:#071019;border-bottom:1px solid var(--line)}
+.hero-slide{position:absolute;inset:0;display:block;opacity:0;pointer-events:none;transition:opacity .65s ease}
+.hero-slide.is-active{opacity:1;pointer-events:auto}
+.telegram-slide{background:radial-gradient(circle at 80% 20%,#16527a,#071827 65%);display:flex;align-items:center;justify-content:center}
+.telegram-hero-content{display:flex;align-items:center;gap:22px;padding:18px}
+.telegram-hero-content>img{width:clamp(70px,12vw,120px);height:auto;object-fit:contain}
+.telegram-hero-content h1{font-size:clamp(20px,3.4vw,38px);line-height:1.1;margin:6px 0;color:#fff}
+.telegram-hero-content p{font-size:13px;color:#d3e7f4}
+.hero-join{display:inline-block;margin-top:12px;background:#229ed9;color:white;padding:8px 17px;border-radius:22px;font-size:11px;font-weight:800}
+.movie-slide{overflow:hidden}
+.hero-image{width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;opacity:.85}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,13,.88),rgba(3,8,13,.35) 58%,rgba(3,8,13,.08)),linear-gradient(0deg,rgba(4,9,14,.3),transparent)}
+.hero-caption{position:absolute;left:max(5%,calc((100% - 1160px)/2));top:50%;transform:translateY(-50%);max-width:560px}
+.eyebrow{font-size:9px;letter-spacing:2px;color:var(--gold);font-weight:800}
+.hero-caption h2{font-size:clamp(20px,3.3vw,38px);line-height:1.12;margin:8px 0}
+.hero-caption p{font-size:12px;color:#d1d8df}
+.slider-dots{position:absolute;z-index:5;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.slider-dots button{width:9px;height:9px;border:0;border-radius:50%;background:#9baab5;padding:0;cursor:pointer}
+.slider-dots button.active{background:#229ed9;transform:scale(1.2)}
+
+/* =========================================
+   WELCOME SECTION ও JOIN BUTTON
+   ========================================= */
+.welcome{text-align:center;padding:22px 16px 25px;border-bottom:1px solid var(--line)}
+.welcome h1{font-size:clamp(23px,3vw,32px);line-height:1.2}
+.welcome h1 span{color:var(--gold)}
+.welcome p{font-size:13px;color:#c2cbd4;margin:5px 0 17px}
+.main-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{min-height:43px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:25px;font-size:13px;font-weight:800;transition:.2s;border:1px solid transparent}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.primary{background:#229ed9;color:#fff;box-shadow:0 6px 20px #229ed940}
+.btn.outline{border-color:#f18424;background:#0d151e;color:#fff}
+
+/* Join Update Channel, Join Movie Group ও Contact button-এর ছবির সাইজ */
+.button-icon{width:19px;height:19px;object-fit:contain}
+.telegram-icon{filter:none;object-fit:contain}
+
+/* =========================================
+   FEATURED MOVIES / মুভির কার্ড
+   ========================================= */
+.section{width:min(1160px,92%);margin:0 auto;padding:24px 0 25px}
+.section-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.section-heading h2{font-size:21px}
+.flame{color:var(--orange);margin-right:7px}
+.small-note{font-size:10px;color:#8997a5}
+.movie-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.movie-card{min-width:0;overflow:hidden;border:1px solid #9c4c19;border-radius:11px;background:#111923;box-shadow:0 5px 18px #0005;transition:.2s;display:block}
+.movie-card:hover{transform:translateY(-4px);border-color:var(--orange)}
+.movie-card img{width:100%;height:clamp(145px,20vw,235px);object-fit:cover;display:block;background:#111}
+.movie-card h3{font-size:12px;text-align:center;padding:9px 7px 11px;line-height:1.35;min-height:48px}
+
+/* =========================================
+   ADVERTISEMENT / বিজ্ঞাপনের জায়গা
+   ========================================= */
+.ad-section{width:min(1160px,92%);margin:0 auto;padding:6px 0 24px}
+.ad-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ad-slot{height:132px;display:block;border:1px dashed rgba(255,255,255,.12);border-radius:12px;background:transparent;overflow:hidden}
+.ad-slot:empty{border-color:rgba(255,255,255,.22);background:rgba(17,25,35,.35)}
+.ad-slot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* =========================================
+   FOOTER / ওয়েবসাইটের নিচের অংশ
+   Footer-এর নামের আগে favicon.png দেখাবে
+   ========================================= */
+.footer{text-align:center;padding:24px 15px 25px;border-top:1px solid var(--line);background:#060b10}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;font-size:22px;font-weight:900}
+.footer-brand img{width:38px;height:38px;object-fit:contain;border-radius:50%}
+.footer-brand strong span{color:var(--orange)}
+.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:17px 0;color:#c3ccd5;font-size:11px}
+.footer-links a:hover{color:var(--gold)}
+
+/* Contact section-এর Telegram GIF, Email ও WhatsApp icon */
+.social-links{display:flex;justify-content:center;gap:18px;margin:12px}
+.social-links img{width:24px;height:24px;object-fit:contain}
+.footer p{font-size:10px;color:#8995a0;margin-top:5px}
+.footer .credit a{color:var(--gold);font-weight:700}
+
+/* =========================================
+   TABLET / ছোট ল্যাপটপের জন্য ডিজাইন
+   ========================================= */
+@media(max-width:760px){
+  .topbar{height:62px}
+  /* ট্যাবলেটে Header-এর অ্যানিমেটেড লোগো */
+  .brand img{width:80px;height:45px}
+  .brand-copy strong{font-size:19px}
+  .nav{gap:13px}
+  .nav a{font-size:11px}
+  .movie-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .movie-card img{height:190px}
+}
+
+/* =========================================
+   MOBILE / মোবাইল ফোনের জন্য ডিজাইন
+   ========================================= */
+@media(max-width:560px){
+  .topbar{padding:0 4%}
+  .menu-toggle{display:block}
+  .nav{display:none;position:absolute;top:62px;left:0;right:0;background:#071019;padding:14px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:15px}
+  .nav.open{display:flex}
+  .nav a{font-size:13px}
+
+  /* মোবাইলে Header-এর অ্যানিমেটেড লোগোর সাইজ */
+  .brand img{width:72px;height:41px}
+
+  .hero-slider{height:170px}
+  .telegram-hero-content{gap:13px}
+  .telegram-hero-content h1{font-size:21px}
+  .telegram-hero-content p{font-size:10px}
+  .hero-caption{left:5%;right:5%}
+  .hero-caption h2{font-size:22px}
+  .hero-caption p{font-size:10px}
+  .welcome{padding:18px 12px 20px}
+  .welcome p{font-size:11px}
+  .main-buttons{gap:8px}
+  .btn{min-height:39px;padding:0 13px;font-size:11px}
+  .section{padding:19px 0}
+  .section-heading h2{font-size:17px}
+  .movie-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .movie-card img{height:210px}
+  .movie-card h3{font-size:11px;min-height:43px}
+  .ad-section{padding-top:5px}
+  .ad-grid{grid-template-columns:1fr;gap:10px}
+  .ad-slot{height:112px}
+  .footer-links{gap:13px}
+}
+
+/* =========================================
+   TELEGRAM BUTTON-এর নীল রং ঠিক রাখা
+   ========================================= */
 .main-buttons a.btn.primary,
-a.btn.primary[href*="t.me"] {
-  background: #229ED9 !important;
-  background-image: none !important;
-  border-color: #229ED9 !important;
-  color: #ffffff !important;
-  box-shadow: 0 6px 20px rgba(34,158,217,.28) !important;
+a.btn.primary[href*="t.me"]{
+  background:#229ED9!important;
+  background-image:none!important;
+  border-color:#229ED9!important;
+  color:#fff!important;
+  box-shadow:0 6px 20px rgba(34,158,217,.28)!important;
 }
 .main-buttons a.btn.primary:hover,
-a.btn.primary[href*="t.me"]:hover {
-  background: #168AC4 !important;
-  border-color: #168AC4 !important;
-}
-.button-icon.telegram-icon,
-.social-links img.telegram-icon,
-.telegram-hero-content > img {
-  object-fit: contain;
-  background: transparent;
+a.btn.primary[href*="t.me"]:hover{
+  background:#168AC4!important;
+  border-color:#168AC4!important;
 }
 
-/* Home links on brand and welcome title */
+/* Telegram-এর আইকন যেন বিকৃত না হয় */
+.button-icon.telegram-icon,
+.social-links img.telegram-icon,
+.telegram-hero-content>img{
+  object-fit:contain;
+  background:transparent;
+}
+
+/* Welcome title ও Footer brand-এর লিংক ডিজাইন */
 .welcome-home-link{color:inherit;text-decoration:none}
 .welcome-home-link:hover span{text-decoration:underline;text-underline-offset:4px}
 .footer-brand{color:inherit;text-decoration:none}
