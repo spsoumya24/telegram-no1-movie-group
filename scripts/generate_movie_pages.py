@@ -65,6 +65,7 @@ def page_html(movie, slug):
 <title>{t} | MaitiHub24</title>
 <meta name="description" content="{d}">
 <link rel="canonical" href="{pu}">
+<link rel="stylesheet" href="/advanced-search.css">
 <meta property="og:site_name" content="MaitiHub24">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{t} | MaitiHub24">
@@ -92,12 +93,38 @@ img{{display:block;width:100%;max-height:65vh;object-fit:contain;background:#111
 .home{{display:inline-block;margin-top:22px;color:#8fcfff;text-decoration:none}}
 </style>
 </head>
-<body><main>
+<body>
+<header class="detail-topbar">
+  <a class="detail-brand" href="{SITE}/" aria-label="MaitiHub24 home">
+    <img src="{SITE}/logo.gif" alt="MaitiHub24 logo">
+    <span>MAITI<span>HUB24</span></span>
+  </a>
+  <button type="button" class="maiti-search-trigger" id="open-movie-search"
+    aria-label="Open advanced movie search" aria-haspopup="dialog" aria-controls="movie-search-panel">
+    <span class="maiti-search-glass" aria-hidden="true">🔎</span><span>Search</span>
+  </button>
+</header>
+<div class="maiti-search-panel" id="movie-search-panel" hidden>
+  <section class="maiti-search-dialog" role="dialog" aria-modal="true" aria-labelledby="maiti-search-heading">
+    <div class="maiti-search-heading">
+      <span id="maiti-search-heading">Advanced Movie Search</span>
+      <button type="button" class="maiti-search-close" id="close-movie-search" aria-label="Close search">×</button>
+    </div>
+    <div class="maiti-search-input-wrap">
+      <span class="maiti-search-glass" aria-hidden="true">⌕</span>
+      <input type="search" id="movie-search-input" placeholder="Search movies... / মুভি খুঁজুন" autocomplete="off" aria-label="Search movies">
+    </div>
+    <div class="maiti-search-results" id="movie-search-results" role="listbox" aria-label="Movie search results"></div>
+  </section>
+</div>
+<main>
 {action}
 <h1>{t}</h1>
 <p>{html.escape(note)}</p>
 <a class="home" href="{SITE}/#movies">← Back to MaitiHub24</a>
-</main></body></html>
+</main>
+<script src="/advanced-search.js" defer></script>
+</body></html>
 '''
 
 
