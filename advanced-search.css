@@ -1,0 +1,30 @@
+/* MaitiHub24 Advanced Search UI */
+.maiti-search-trigger{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 12px;border:1px solid #263744;border-radius:12px;background:rgba(9,18,27,.92);color:#12b981;font:inherit;font-weight:700;cursor:pointer;white-space:nowrap}
+.maiti-search-trigger:hover{border-color:#12b981;background:#10231f}
+.maiti-search-trigger .maiti-search-glass{font-size:19px}
+.maiti-search-panel[hidden]{display:none!important}
+.maiti-search-panel{position:fixed;inset:0;z-index:99999;display:flex;align-items:flex-start;justify-content:center;padding:max(7vh,28px) 14px 20px;background:rgba(0,0,0,.78);backdrop-filter:blur(5px);overflow-y:auto}
+.maiti-search-dialog{width:min(680px,100%);max-height:86vh;overflow:hidden;display:flex;flex-direction:column;background:#0c141d;color:#f4f7fb;border:1px solid #24546a;border-radius:18px;box-shadow:0 18px 65px #0009,0 0 22px #00beff20}
+.maiti-search-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 18px;border-bottom:1px solid #263744;font-weight:800}
+.maiti-search-close{width:36px;height:36px;border:1px solid #344553;border-radius:10px;background:#17232e;color:#fff;font-size:22px;cursor:pointer}
+.maiti-search-input-wrap{display:flex;align-items:center;gap:10px;margin:16px;padding:0 14px;min-height:54px;border:1px solid #1e9ed0;border-radius:13px;background:#101f2c}
+.maiti-search-input-wrap:focus-within{border-color:#28c8ff;box-shadow:0 0 0 3px #28c8ff20}
+.maiti-search-input-wrap .maiti-search-glass{color:#35c6ff;font-size:21px}
+#movie-search-input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#fff;font:inherit;font-size:16px}
+#movie-search-input::placeholder{color:#93a2b0}
+.maiti-search-results{margin:0 16px 16px;overflow-y:auto;border:1px solid #263744;border-radius:12px}
+.maiti-search-results:empty{display:none}
+.maiti-search-suggestion{padding:12px 13px;color:#ffbd55;font-size:13px;font-weight:700;border-bottom:1px solid #263744}
+.maiti-search-result{display:flex;align-items:center;gap:12px;min-height:76px;padding:9px 12px;color:#f4f7fb;text-decoration:none;border-bottom:1px solid #263744;font-size:14px;font-weight:650}
+.maiti-search-result:last-child{border-bottom:0}
+.maiti-search-result:hover{background:#172a39;color:#ffbd55}
+.maiti-search-result img{flex:0 0 48px;width:48px;height:64px;object-fit:cover;border-radius:6px;background:#18232d}
+.maiti-search-empty{padding:20px 14px;color:#b4c0ca;text-align:center;font-size:13px}
+body.maiti-search-open{overflow:hidden}
+@media(max-width:480px){.maiti-search-trigger{min-height:40px;padding:0 9px;font-size:13px}.maiti-search-panel{padding:5vh 10px 14px}.maiti-search-dialog{max-height:90vh;border-radius:15px}.maiti-search-heading{padding:14px}.maiti-search-input-wrap{margin:12px;min-height:49px}.maiti-search-results{margin:0 12px 12px}}
+/* Detail page header search alignment */
+.detail-topbar{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px clamp(12px,3vw,28px);background:#050a0f;border-bottom:1px solid rgba(255,255,255,.1);position:sticky;top:0;z-index:30}
+.detail-brand{display:flex;align-items:center;gap:9px;color:#fff;text-decoration:none;font-weight:800;font-size:19px}
+.detail-brand img{width:46px;height:42px;object-fit:contain}
+.detail-brand>span{color:#fff}.detail-brand>span span{color:#ff850e}
+.detail-brand span{color:#ff850e}

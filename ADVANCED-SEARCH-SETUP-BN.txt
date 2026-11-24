@@ -1,0 +1,23 @@
+MAITIHUB24 ADVANCED SEARCH - FINAL PACKAGE
+
+এই প্রজেক্টে Header-এর ডানদিকে ছোট Search button যোগ করা হয়েছে।
+Search button-এ ক্লিক করলে Advanced Search Panel খুলবে।
+
+ফিচার:
+- movies.json থেকে Live movie search
+- Fuzzy spelling match / কাছাকাছি বানান সাজেশন
+- বাংলা Alias search
+- Poster ও title-সহ result
+- Result click করলে /movie/<id>/ পেজে যায়
+- Homepage ও generated Movie Details Page-এ একই Search
+- Close, outside click এবং Escape key দিয়ে Panel বন্ধ
+
+পরীক্ষা:
+- movies.json JSON parsing সফল
+- ২০টি movie detail page generator দিয়ে তৈরি
+- সব ২০টি poster filename প্রজেক্টে পাওয়া গেছে
+- JavaScript syntax check সফল
+
+GitHub-এ:
+পুরো ZIP extract করে repository root-এর ফাইলগুলো একই path-এ upload/replace করবে।
+পুরোনো GitHub repository delete করবে না।

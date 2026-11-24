@@ -23,6 +23,7 @@
 
   <!-- ওয়েবসাইটের মূল ডিজাইন ও CSS ফাইল -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="advanced-search.css">
 
   <!-- ============================= -->
   <!-- WHATSAPP / FACEBOOK LINK PREVIEW -->
@@ -81,6 +82,11 @@
       <small>OFFICIAL MOVIE HUB</small>
     </span>
   </a>
+  <button type="button" class="maiti-search-trigger" id="open-movie-search"
+          aria-label="Open advanced movie search" aria-haspopup="dialog"
+          aria-controls="movie-search-panel">
+    <span class="maiti-search-glass" aria-hidden="true">🔎</span><span>Search</span>
+  </button>
   <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
   <nav class="nav" id="nav">
     <a href="https://maitihub24.dpdns.org/#home" class="active">⌂ <span>Home</span></a>
@@ -195,8 +201,24 @@
   <p class="credit">Designed &amp; Developed by <a href="https://t.me/Sp_gamer24" target="_blank" rel="noopener noreferrer">Soumyajit Maiti</a></p>
 </footer>
 
+<!-- Advanced Search Panel: সব পেজে একই Search UI -->
+<div class="maiti-search-panel" id="movie-search-panel" hidden>
+  <section class="maiti-search-dialog" role="dialog" aria-modal="true" aria-labelledby="maiti-search-heading">
+    <div class="maiti-search-heading">
+      <span id="maiti-search-heading">Advanced Movie Search</span>
+      <button type="button" class="maiti-search-close" id="close-movie-search" aria-label="Close search">×</button>
+    </div>
+    <div class="maiti-search-input-wrap">
+      <span class="maiti-search-glass" aria-hidden="true">⌕</span>
+      <input type="search" id="movie-search-input" placeholder="Search movies... / মুভি খুঁজুন" autocomplete="off" aria-label="Search movies">
+    </div>
+    <div class="maiti-search-results" id="movie-search-results" role="listbox" aria-label="Movie search results"></div>
+  </section>
+</div>
+
 <!-- বিজ্ঞাপন ও মুভি/স্লাইডার/মেনুর JavaScript -->
 <script src="ads.js"></script>
 <script src="script.js"></script>
+<script src="advanced-search.js" defer></script>
 </body>
 </html>
