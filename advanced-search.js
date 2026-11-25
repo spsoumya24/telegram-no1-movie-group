@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const empty=document.createElement("div");
       empty.className="maiti-search-empty";
       const message=document.createElement("p");
-      message.textContent="কোনো সিনেমা পাওয়া যায়নি। অন্য বানানে চেষ্টা করুন অথবা WhatsApp-এ Request পাঠান।";
+      message.textContent="No movies found. Try a different spelling or send a request on WhatsApp. / कोई फिल्म नहीं मिली। कृपया दूसरी स्पेलिंग आज़माएं या WhatsApp पर अनुरोध भेजें। / কোনো সিনেমা পাওয়া যায়নি। অন্য বানানে চেষ্টা করুন অথবা WhatsApp-এ Request পাঠান।";
       const request=document.createElement("a");
       request.className="maiti-search-request";
       request.textContent="Request on WhatsApp";
@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       request.href="https://wa.me/918967284080?text="+encodeURIComponent(requestText);
       const note=document.createElement("div");
       note.className="maiti-search-request-note";
-      note.textContent="WhatsApp খুললে Send চাপুন। / WhatsApp खुलने पर Send दबाएँ। / WhatsApp খুললে Send চাপুন।";
-      empty.append(message,request,note);
+      note.textContent="Click here 👆Open WhatsApp click send / WhatsApp खुलने पर Send दबाएँ। / WhatsApp খুললে Send চাপুন।";
+      empty.append(message,request,note); 
       results.append(empty); return;
     }
     if(found[0].score<.88){
