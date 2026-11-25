@@ -79,7 +79,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     if(!found.length){
       const empty=document.createElement("div");
       empty.className="maiti-search-empty";
-      empty.textContent="কোনো সিনেমা পাওয়া যায়নি। অন্য বানানে চেষ্টা করুন।";
+      const message=document.createElement("p");
+      message.textContent="কোনো সিনেমা পাওয়া যায়নি। অন্য বানানে চেষ্টা করুন অথবা WhatsApp-এ Request পাঠান।";
+      const request=document.createElement("a");
+      request.className="maiti-search-request";
+      request.textContent="Request on WhatsApp";
+      request.target="_blank";
+      request.rel="noopener noreferrer";
+      const requestText = `Hello MaitiHub24, I would like to request this movie: ${String(value).trim()}\nWebsite: MaitiHub24\nPlease let me know if it becomes available through an official/legal source.`;
+      request.href="https://wa.me/918967284080?text="+encodeURIComponent(requestText);
+      const note=document.createElement("div");
+      note.className="maiti-search-request-note";
+      note.textContent="WhatsApp খুললে Send চাপুন। / WhatsApp खुलने पर Send दबाएँ। / WhatsApp খুললে Send চাপুন।";
+      empty.append(message,request,note);
       results.append(empty); return;
     }
     if(found[0].score<.88){

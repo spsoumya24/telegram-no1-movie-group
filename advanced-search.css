@@ -28,3 +28,9 @@ body.maiti-search-open{overflow:hidden}
 .detail-brand img{width:46px;height:42px;object-fit:contain}
 .detail-brand>span{color:#fff}.detail-brand>span span{color:#ff850e}
 .detail-brand span{color:#ff850e}
+
+/* WhatsApp movie request shown when search has no match */
+.maiti-search-request{display:inline-flex;align-items:center;justify-content:center;margin:8px auto 4px;padding:11px 18px;border-radius:10px;background:#20b86a;color:#fff!important;text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 5px 16px #20b86a30}
+.maiti-search-request:hover{background:#159653}
+.maiti-search-request-note{margin-top:7px;color:#aebbc7;font-size:11px;line-height:1.6}
+.maiti-search-empty p{margin:0 0 5px}
